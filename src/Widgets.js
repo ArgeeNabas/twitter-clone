@@ -17,6 +17,19 @@ function Widgets() {
 
 			<div class="widgets__widgetContainer">
 				<h2>What's happening?</h2>
+
+				<TwitterTweetEmbed tweetId={'1508838714180612100'} />
+
+				<TwitterTimelineEmbed
+					sourceType="profile"
+					screenName="reactjs"
+					options={{ height: 400 }}
+				/>
+
+				<TwitterShareButton
+					url={"https://twitter.com/reactjs"}
+					options={{ text: "#reactjs is awesome", via: "reactjs" }}
+				/>
 			</div>
 		</div>
 	)

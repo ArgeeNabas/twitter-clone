@@ -1,38 +1,32 @@
 import { ChatBubbleOutline, FavoriteBorder, Publish, Repeat, VerifiedUser } from '@mui/icons-material'
 import { Avatar } from '@mui/material'
-import React from 'react'
+import React, { forwardRef } from 'react'
 import "./Post.css"
 
-function Post({
-	displayName,
-	username,
-	verified,
-	text,
-	image,
-	avatar
-}) {
+const Post = forwardRef(({ displayName, username, verified, text, image, avatar
+}, ref) => {
 	return (
-		<div className="post">
+		<div className="post" ref={ref}>
 			<div className="post__avatar">
-				<Avatar />
+				<Avatar src={avatar} />
 			</div>
 			<div className="post__body">
 				<div className="post__header">
 					<div className="post__headerText">
 						<h3>
-							Argee Nabas <span className='post__headerSpecial'>
-								<VerifiedUser className='post__badge' /> @Argeebomb
+							{displayName} <span className='post__headerSpecial'>
+								{verified && <VerifiedUser className='post__badge' />} @{username}
 							</span>
 						</h3>
 					</div>
 					<div class="post__headerDescription">
-						<p>Placeholder tweet text asdlfkjhaslkfhlaskdfhlksjflsdaf
-						asdlfkjhaslkfhlaskdfhlksjflsdaf
+						<p>
+							{text}
 						</p>
 					</div>
 				</div>
 				<img
-					src=""
+					src={image}
 					alt=""
 				/>
 				<div class="post__footer">
@@ -44,6 +38,6 @@ function Post({
 			</div>
 		</div>
 	)
-}
+})
 
 export default Post
